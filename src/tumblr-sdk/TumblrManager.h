@@ -10,7 +10,7 @@
 #import "JSON.h"
 
 //text, quote, photo, link, chat, video, or audio
-typedef enum _tumblrPostType {
+typedef enum {
     TumblrPostTypeText,
     TumblrPostTypeQuote,
 	TumblrPostTypePhoto,
@@ -22,7 +22,7 @@ typedef enum _tumblrPostType {
 } TumblrPostType;
 
 
-typedef enum _tumblrFilterType {
+typedef enum {
     
     TumblrFilterTypeHtml,
     TumblrFilterTypeText,

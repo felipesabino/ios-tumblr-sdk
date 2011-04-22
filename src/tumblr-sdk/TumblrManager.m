@@ -8,7 +8,7 @@
 
 #import "TumblrManager.h"
 
-typedef enum _tumblrApiCall {
+typedef enum  {
     
     TumblrApiCallAuthentication,
     TumblrApiCallDashboard,
@@ -228,8 +228,6 @@ typedef enum _tumblrApiCall {
     //inits connection
     [_delegate retain];
     
-    
-    
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
     //set dictionary with api call types as all connections goes to the same delegate method call
@@ -315,7 +313,7 @@ typedef enum _tumblrApiCall {
             arrResponse = [[dicResponse objectForKey:@"posts"] retain];
             
             if (!arrResponse) {
-                [NSException raise:@"Error getting dashboard data" format:nil];
+                [NSException raise:@"Error getting dashboard data" format:@""];
             }
             
         }

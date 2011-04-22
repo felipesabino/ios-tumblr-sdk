@@ -1,0 +1,337 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E273B2591360EC7000F60435 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E273B2581360EC7000F60435 /* UIKit.framework */; };
+		E273B25B1360EC7000F60435 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E273B25A1360EC7000F60435 /* Foundation.framework */; };
+		E273B25D1360EC7000F60435 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E273B25C1360EC7000F60435 /* CoreGraphics.framework */; };
+		E273B2661360EC7000F60435 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2651360EC7000F60435 /* main.m */; };
+		E273B2691360EC7000F60435 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2681360EC7000F60435 /* AppDelegate.m */; };
+		E273B27D1360EEA900F60435 /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B27C1360EEA900F60435 /* HomeController.m */; };
+		E273B2861360EF4A00F60435 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2831360EF4A00F60435 /* NSObject+SBJSON.m */; };
+		E273B2871360EF4A00F60435 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2851360EF4A00F60435 /* NSString+SBJSON.m */; };
+		E273B28D1360F00E00F60435 /* TumblrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B28C1360F00E00F60435 /* TumblrManager.m */; };
+		E273B2971360F11D00F60435 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2901360F11C00F60435 /* SBJSON.m */; };
+		E273B2981360F11D00F60435 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2921360F11C00F60435 /* SBJsonBase.m */; };
+		E273B2991360F11D00F60435 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2941360F11C00F60435 /* SBJsonParser.m */; };
+		E273B29A1360F11D00F60435 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2961360F11D00F60435 /* SBJsonWriter.m */; };
+		E273B29C1360F42B00F60435 /* tumblr-sdk.plist in Resources */ = {isa = PBXBuildFile; fileRef = E273B29B1360F42B00F60435 /* tumblr-sdk.plist */; };
+		E273B2A713610CC500F60435 /* TumblrController.m in Sources */ = {isa = PBXBuildFile; fileRef = E273B2A613610CC500F60435 /* TumblrController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E273B2541360EC7000F60435 /* ios-tumblr-sdk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-tumblr-sdk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E273B2581360EC7000F60435 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E273B25A1360EC7000F60435 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E273B25C1360EC7000F60435 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E273B2601360EC7000F60435 /* ios-tumblr-sdk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-tumblr-sdk-Info.plist"; sourceTree = "<group>"; };
+		E273B2641360EC7000F60435 /* ios-tumblr-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-tumblr-sdk-Prefix.pch"; sourceTree = "<group>"; };
+		E273B2651360EC7000F60435 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E273B2671360EC7000F60435 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E273B2681360EC7000F60435 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E273B27B1360EEA900F60435 /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeController.h; path = Controllers/HomeController.h; sourceTree = "<group>"; };
+		E273B27C1360EEA900F60435 /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeController.m; path = Controllers/HomeController.m; sourceTree = "<group>"; };
+		E273B2821360EF4A00F60435 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		E273B2831360EF4A00F60435 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		E273B2841360EF4A00F60435 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		E273B2851360EF4A00F60435 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		E273B2881360EF6800F60435 /* tumblr-sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "tumblr-sdk.h"; sourceTree = "<group>"; };
+		E273B28B1360F00E00F60435 /* TumblrManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrManager.h; sourceTree = "<group>"; };
+		E273B28C1360F00E00F60435 /* TumblrManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrManager.m; sourceTree = "<group>"; };
+		E273B28E1360F11C00F60435 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		E273B28F1360F11C00F60435 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		E273B2901360F11C00F60435 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		E273B2911360F11C00F60435 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		E273B2921360F11C00F60435 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		E273B2931360F11C00F60435 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		E273B2941360F11C00F60435 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		E273B2951360F11C00F60435 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		E273B2961360F11D00F60435 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		E273B29B1360F42B00F60435 /* tumblr-sdk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "tumblr-sdk.plist"; sourceTree = "<group>"; };
+		E273B2A513610CC500F60435 /* TumblrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TumblrController.h; path = Controllers/TumblrController.h; sourceTree = "<group>"; };
+		E273B2A613610CC500F60435 /* TumblrController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TumblrController.m; path = Controllers/TumblrController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E273B2511360EC7000F60435 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E273B2591360EC7000F60435 /* UIKit.framework in Frameworks */,
+				E273B25B1360EC7000F60435 /* Foundation.framework in Frameworks */,
+				E273B25D1360EC7000F60435 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E273B2491360EC6F00F60435 = {
+			isa = PBXGroup;
+			children = (
+				E273B25E1360EC7000F60435 /* ios-tumblr-sdk */,
+				E273B2571360EC7000F60435 /* Frameworks */,
+				E273B2551360EC7000F60435 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E273B2551360EC7000F60435 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E273B2541360EC7000F60435 /* ios-tumblr-sdk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E273B2571360EC7000F60435 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E273B2581360EC7000F60435 /* UIKit.framework */,
+				E273B25A1360EC7000F60435 /* Foundation.framework */,
+				E273B25C1360EC7000F60435 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E273B25E1360EC7000F60435 /* ios-tumblr-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				E273B27E1360EEB100F60435 /* tumblr-sdk */,
+				E273B27A1360EE8B00F60435 /* Controllers */,
+				E273B2671360EC7000F60435 /* AppDelegate.h */,
+				E273B2681360EC7000F60435 /* AppDelegate.m */,
+				E273B25F1360EC7000F60435 /* Supporting Files */,
+			);
+			path = "ios-tumblr-sdk";
+			sourceTree = "<group>";
+		};
+		E273B25F1360EC7000F60435 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E273B2601360EC7000F60435 /* ios-tumblr-sdk-Info.plist */,
+				E273B2641360EC7000F60435 /* ios-tumblr-sdk-Prefix.pch */,
+				E273B2651360EC7000F60435 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E273B27A1360EE8B00F60435 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E273B27B1360EEA900F60435 /* HomeController.h */,
+				E273B27C1360EEA900F60435 /* HomeController.m */,
+				E273B2A513610CC500F60435 /* TumblrController.h */,
+				E273B2A613610CC500F60435 /* TumblrController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E273B27E1360EEB100F60435 /* tumblr-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				E273B27F1360EF4A00F60435 /* Libraries */,
+				E273B2881360EF6800F60435 /* tumblr-sdk.h */,
+				E273B28B1360F00E00F60435 /* TumblrManager.h */,
+				E273B28C1360F00E00F60435 /* TumblrManager.m */,
+				E273B29B1360F42B00F60435 /* tumblr-sdk.plist */,
+			);
+			name = "tumblr-sdk";
+			path = "../../src/tumblr-sdk";
+			sourceTree = "<group>";
+		};
+		E273B27F1360EF4A00F60435 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				E273B2801360EF4A00F60435 /* JSON */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		E273B2801360EF4A00F60435 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E273B28E1360F11C00F60435 /* JSON.h */,
+				E273B28F1360F11C00F60435 /* SBJSON.h */,
+				E273B2901360F11C00F60435 /* SBJSON.m */,
+				E273B2911360F11C00F60435 /* SBJsonBase.h */,
+				E273B2921360F11C00F60435 /* SBJsonBase.m */,
+				E273B2931360F11C00F60435 /* SBJsonParser.h */,
+				E273B2941360F11C00F60435 /* SBJsonParser.m */,
+				E273B2951360F11C00F60435 /* SBJsonWriter.h */,
+				E273B2961360F11D00F60435 /* SBJsonWriter.m */,
+				E273B2821360EF4A00F60435 /* NSObject+SBJSON.h */,
+				E273B2831360EF4A00F60435 /* NSObject+SBJSON.m */,
+				E273B2841360EF4A00F60435 /* NSString+SBJSON.h */,
+				E273B2851360EF4A00F60435 /* NSString+SBJSON.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E273B2531360EC7000F60435 /* ios-tumblr-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E273B26F1360EC7000F60435 /* Build configuration list for PBXNativeTarget "ios-tumblr-sdk" */;
+			buildPhases = (
+				E273B2501360EC7000F60435 /* Sources */,
+				E273B2511360EC7000F60435 /* Frameworks */,
+				E273B2521360EC7000F60435 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-tumblr-sdk";
+			productName = "ios-tumblr-sdk";
+			productReference = E273B2541360EC7000F60435 /* ios-tumblr-sdk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E273B24B1360EC6F00F60435 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "http://felipe.sabino.me ";
+			};
+			buildConfigurationList = E273B24E1360EC6F00F60435 /* Build configuration list for PBXProject "ios-tumblr-sdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E273B2491360EC6F00F60435;
+			productRefGroup = E273B2551360EC7000F60435 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E273B2531360EC7000F60435 /* ios-tumblr-sdk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E273B2521360EC7000F60435 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E273B29C1360F42B00F60435 /* tumblr-sdk.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E273B2501360EC7000F60435 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E273B2661360EC7000F60435 /* main.m in Sources */,
+				E273B2691360EC7000F60435 /* AppDelegate.m in Sources */,
+				E273B27D1360EEA900F60435 /* HomeController.m in Sources */,
+				E273B2861360EF4A00F60435 /* NSObject+SBJSON.m in Sources */,
+				E273B2871360EF4A00F60435 /* NSString+SBJSON.m in Sources */,
+				E273B28D1360F00E00F60435 /* TumblrManager.m in Sources */,
+				E273B2971360F11D00F60435 /* SBJSON.m in Sources */,
+				E273B2981360F11D00F60435 /* SBJsonBase.m in Sources */,
+				E273B2991360F11D00F60435 /* SBJsonParser.m in Sources */,
+				E273B29A1360F11D00F60435 /* SBJsonWriter.m in Sources */,
+				E273B2A713610CC500F60435 /* TumblrController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E273B26D1360EC7000F60435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E273B26E1360EC7000F60435 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		E273B2701360EC7000F60435 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ios-tumblr-sdk/ios-tumblr-sdk-Prefix.pch";
+				INFOPLIST_FILE = "ios-tumblr-sdk/ios-tumblr-sdk-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E273B2711360EC7000F60435 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ios-tumblr-sdk/ios-tumblr-sdk-Prefix.pch";
+				INFOPLIST_FILE = "ios-tumblr-sdk/ios-tumblr-sdk-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E273B24E1360EC6F00F60435 /* Build configuration list for PBXProject "ios-tumblr-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E273B26D1360EC7000F60435 /* Debug */,
+				E273B26E1360EC7000F60435 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E273B26F1360EC7000F60435 /* Build configuration list for PBXNativeTarget "ios-tumblr-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E273B2701360EC7000F60435 /* Debug */,
+				E273B2711360EC7000F60435 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E273B24B1360EC6F00F60435 /* Project object */;
+}

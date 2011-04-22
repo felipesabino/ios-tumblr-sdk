@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>url_authenticate</key>
+	<string>http://www.tumblr.com/api/authenticate</string>
+	<key>url_dashboard</key>
+	<string>http://www.tumblr.com/api/dashboard/json</string>
+	<key>url_like</key>
+	<string>http://www.tumblr.com/api/like/json</string>
+	<key>url_likes</key>
+	<string>http://www.tumblr.com/api/likes/json</string>
+	<key>url_pages</key>
+	<string>http://www.tumblr.com/api/pages/json</string>
+	<key>url_read</key>
+	<string>http://%@.tumblr.com/api/read/json</string>
+</dict>
+</plist>

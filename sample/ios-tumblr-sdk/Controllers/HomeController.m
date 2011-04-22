@@ -83,6 +83,7 @@
     
     _btnLogin.enabled = NO;
     _btnLogin.alpha = 0.7;    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [_tbTumblr authenticateWithEmail:_txtfLogin.text andPassword:_txtfPass.text];
     
 }
@@ -92,23 +93,41 @@
 
 -(void)tumblrManager:(TumblrManager *)tumblrManager didReceivedAuthenticationInfo:(BOOL)userIsLogged {
     
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
     if (userIsLogged) {
         TumblrController *ctrl = [[TumblrController alloc] initWithEmail:_txtfLogin.text andPassword:_txtfPass.text];
         [self.navigationController pushViewController:ctrl animated:YES];
         [ctrl release];
         
-        _txtfPass.text = @"";
-
 
     } else {
+        UIAlertView *alvwError = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Wrong credentials" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
-        NSLog(@"user is not logged");
-        //nsalert
+        
+        [alvwError show];
+        [alvwError release];
+    
     }
     
+    _txtfPass.text = @"";
+
     _btnLogin.enabled = YES;
     _btnLogin.alpha = 1.0;
+}
+
+
+-(void)tumblrManagerErrorRequestingAuthenticationInfo:(TumblrManager *)tumblrManager {
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+    UIAlertView *alvwError = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error while connecting to tumblr server" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    
+    [alvwError show];
+    [alvwError release];
+    
+    
 }
 
 #pragma - Memory

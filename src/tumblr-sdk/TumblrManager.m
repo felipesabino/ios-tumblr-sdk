@@ -228,6 +228,8 @@ typedef enum _tumblrApiCall {
     //inits connection
     [_delegate retain];
     
+    
+    
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
     //set dictionary with api call types as all connections goes to the same delegate method call
@@ -260,6 +262,24 @@ typedef enum _tumblrApiCall {
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
+    
+    NSNumber *nbApiCall = (NSNumber *)CFDictionaryGetValue(_cfdicConnectionApiCall, connection);
+    TumblrApiCall tacApiCall = (TumblrApiCall)[nbApiCall intValue];
+
+    if (tacApiCall == TumblrApiCallDashboard) {
+        
+        if (_delegate && [_delegate respondsToSelector:@selector(tumblrManagerErrorRequestingDashboadData::)]) {
+            [_delegate tumblrManagerErrorRequestingDashboadData:self];
+        }
+
+    } else if (tacApiCall == TumblrApiCallAuthentication) {
+        
+        if (_delegate && [_delegate respondsToSelector:@selector(tumblrManagerErrorRequestingAuthenticationInfo:)]) {
+            [_delegate tumblrManagerErrorRequestingAuthenticationInfo:self];
+        }
+
+    }    
+    
     //remove nsdata from connection data dictionary
     NSMutableData *data = (NSMutableData *)CFDictionaryGetValue(_cfdicConnectionData, connection);
     CFDictionaryRemoveValue(_cfdicConnectionData, connection);
@@ -284,27 +304,47 @@ typedef enum _tumblrApiCall {
 
     NSString *strResponse = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
     
-    NSLog(@"apicall %d", tacApiCall);
     
     if (tacApiCall == TumblrApiCallDashboard) {
+        BOOL bError = NO;
+        NSArray *arrResponse;
         
-        NSDictionary *dicResponse = [self parseTumblrJavascriptJSON:strResponse];
-        
-        NSArray *arrResponse = [[dicResponse objectForKey:@"posts"] retain];
-        
-        if (_delegate && [_delegate respondsToSelector:@selector(tumblrManager:didGetDashboadData:)]) {
-            [_delegate tumblrManager:self didGetDashboadData:arrResponse];
+        @try {
+            NSDictionary *dicResponse = [self parseTumblrJavascriptJSON:strResponse];
+            
+            arrResponse = [[dicResponse objectForKey:@"posts"] retain];
+            
+            if (!arrResponse) {
+                [NSException raise:@"Error getting dashboard data" format:nil];
+            }
+            
         }
-        
-        [arrResponse release];
+        @catch (NSException *exception) {
+
+            bError = YES;
+            
+            if (_delegate && [_delegate respondsToSelector:@selector(tumblrManagerErrorRequestingDashboadData:)]) {
+                [_delegate tumblrManagerErrorRequestingDashboadData:self];
+            }
+            
+        }
+        @finally {
+            
+            if (!bError) {
+                if (_delegate && [_delegate respondsToSelector:@selector(tumblrManager:didReceiveDashboadData:)]) {
+                    [_delegate tumblrManager:self didReceiveDashboadData:arrResponse];
+                }
+            }
+            
+            [arrResponse release];
+        }
         
     } else if (tacApiCall == TumblrApiCallAuthentication) {
         
         if (_delegate && [_delegate respondsToSelector:@selector(tumblrManager:didReceivedAuthenticationInfo:)]) {
-
-            NSLog(@"response: %@", strResponse);
             
-            if ([[strResponse substringToIndex:14] isEqualToString:@"<?xml version="]) { //TODO: fix this POG; auth does not return XML if auth fails... it returns just "Invalid credentials.". AND there is no way of calling auth method with a json response
+            if ([[strResponse substringToIndex:14] isEqualToString:@"<?xml version="]) { 
+                //TODO: fix this if; I've done this because I was too lazy to parse the xml and tumblr auth does not return any XML if auth fails, it returns just "Invalid credentials." AND besides that, there is no way of calling auth method with a json response... 
                 [_delegate tumblrManager:self didReceivedAuthenticationInfo:YES];
             } else {
                 [_delegate tumblrManager:self didReceivedAuthenticationInfo:NO];

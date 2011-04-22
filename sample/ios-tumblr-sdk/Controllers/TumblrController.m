@@ -31,6 +31,8 @@
     
     [super loadView];
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
     [_tbTumblr requestDashboard:TumblrPostTypeQuote atPage:1 andNumberOfRecordsPerPage:40 filtered:TumblrFilterTypeText];
     
 }
@@ -38,13 +40,39 @@
 
 #pragma - TumblrManagerDelegate
 
--(void)tumblrManager:(TumblrManager *)tumblrManager didGetDashboadData:(NSArray *)data {
+-(void)tumblrManager:(TumblrManager *)tumblrManager didReceiveDashboadData:(NSArray *)data {
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [_arrData addObjectsFromArray:data];
     [self.tableView reloadData];
     
 }
 
+
+-(void)tumblrManagerErrorRequestingDashboadData:(TumblrManager *)tumblrManager {
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+
+    UIAlertView *alvwError = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error getting dashboard data" delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
+    
+    
+    [alvwError show];
+    [alvwError release];
+
+    
+}
+
+#pragma - UIAlertViewDelegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        [_tbTumblr requestDashboard:TumblrPostTypeQuote atPage:1 andNumberOfRecordsPerPage:40 filtered:TumblrFilterTypeText];
+    }
+    
+}
 
 #pragma - TableView Delegate and Datasource
 

@@ -35,8 +35,11 @@ typedef enum _tumblrFilterType {
 @protocol TumblrManagerDelegate <NSObject>
 
 @optional
--(void) tumblrManager: (TumblrManager *)tumblrManager didGetDashboadData: (NSArray *)data;
+-(void) tumblrManager: (TumblrManager *)tumblrManager didReceiveDashboadData: (NSArray *)data;
+-(void) tumblrManagerErrorRequestingDashboadData: (TumblrManager *)tumblrManager;
 -(void) tumblrManager: (TumblrManager *)tumblrManager didReceivedAuthenticationInfo: (BOOL) userIsLogged;
+-(void) tumblrManagerErrorRequestingAuthenticationInfo: (TumblrManager *)tumblrManager;
+
 
 @end
 

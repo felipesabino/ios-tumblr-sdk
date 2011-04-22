@@ -10,7 +10,7 @@
 #import "tumblr-sdk.h"
 
 
-@interface TumblrController : UITableViewController <TumblrManagerDelegate> {
+@interface TumblrController : UITableViewController <TumblrManagerDelegate, UIAlertViewDelegate> {
     
     TumblrManager *_tbTumblr;
     NSMutableArray *_arrData;

@@ -60,14 +60,6 @@ typedef enum {
 @property (nonatomic, retain) NSString *email;
 @property (nonatomic, retain) NSString *password;
 
-/**
- @brief Return JSON representation (or fragment) for the given object.
- 
- Returns a string containing JSON representation of the passed in value, or nil on error.
- If nil is returned and @p error is not NULL, @p *error can be interrogated to find the cause of the error.
- 
- @param value any instance that can be represented as a JSON fragment
- **/
 -(id) initWithDelegate: (id<TumblrManagerDelegate>) delegate;
 -(id) initWithDelegate: (id<TumblrManagerDelegate>) delegate email: (NSString *) email andPassword: (NSString *) password;
 
@@ -79,6 +71,11 @@ typedef enum {
 -(void) requestDashboard: (TumblrPostType) type;
 -(void) requestDashboard: (TumblrPostType) type atPage:(int) page andNumberOfRecordsPerPage: (int) rpp;
 -(void) requestDashboard: (TumblrPostType) type atPage:(int) page andNumberOfRecordsPerPage: (int) rpp filtered: (TumblrFilterType) filter;
+
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type;
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type withSearch:(NSString *) query;
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type withSearch:(NSString *) query atPage:(int) page andNumberOfRecordsPerPage: (int) rpp; 
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type withSearch:(NSString *) query atPage:(int) page andNumberOfRecordsPerPage: (int) rpp filtered: (TumblrFilterType) filter;
 
 
 @end

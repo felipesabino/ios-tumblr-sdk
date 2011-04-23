@@ -12,6 +12,8 @@ typedef enum  {
     
     TumblrApiCallAuthentication,
     TumblrApiCallDashboard,
+    TumblrApiCallPage,
+    TumblrApiCallSearch,
 } TumblrApiCall;
 
 
@@ -145,6 +147,8 @@ typedef enum  {
 
 #pragma - API calls
 
+#pragma Authentication
+
 -(void)authenticate {
     
     [self authenticateWithEmail:_strEmail andPassword:_strPassword];
@@ -178,6 +182,7 @@ typedef enum  {
     
 }
 
+#pragma Dashboard
 
 -(void) requestDashboard: (TumblrPostType) type {
     
@@ -202,23 +207,23 @@ typedef enum  {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
     //format request authentication
-    NSString *strPostParams = [NSString stringWithFormat:@"email=%@&password=%@", 
-                               [_strEmail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                               [_strPassword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableString *strPostParams = [NSMutableString stringWithFormat:@"email=%@&password=%@", 
+                                      [_strEmail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                      [_strPassword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     //format request type of data to be returned
     NSString *strType = [self getTypeString:type];
     if (strType) {
-        strPostParams = [strPostParams stringByAppendingFormat:@"&type=%@", strType];
+        [strPostParams appendFormat:@"&type=%@", strType];
     }
     
     //format request number of pages and total records per page
     int start = page * rpp;
-    strPostParams = [strPostParams stringByAppendingFormat:@"&start=%d&num=%d", start, rpp];
+    [strPostParams appendFormat:@"&start=%d&num=%d", start, rpp];
     
     //format request filter
     if (filter != TumblrFilterTypeHtml) {
-        strPostParams = [strPostParams stringByAppendingFormat:@"&filter=%@", [self getFilterString:filter]];
+        [strPostParams appendFormat:@"&filter=%@", [self getFilterString:filter]];
     }
     
     
@@ -237,6 +242,75 @@ typedef enum  {
     
 }
 
+#pragma Page/Read
+
+
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type {
+    
+    [self requestPage:tumblrPage forType:type withSearch:nil atPage:1 andNumberOfRecordsPerPage:20 filtered:TumblrFilterTypeHtml];
+    
+}
+
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type withSearch:(NSString *) query {
+    
+    [self requestPage:tumblrPage forType:type withSearch:query atPage:1 andNumberOfRecordsPerPage:20 filtered:TumblrFilterTypeHtml];
+    
+}
+
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type withSearch:(NSString *) query atPage:(int) page andNumberOfRecordsPerPage: (int) rpp {
+    
+    [self requestPage:tumblrPage forType:type withSearch:query atPage:page andNumberOfRecordsPerPage:rpp filtered:TumblrFilterTypeHtml];
+    
+}
+
+-(void) requestPage: (NSString *) tumblrPage forType: (TumblrPostType) type withSearch:(NSString *) query atPage:(int) page andNumberOfRecordsPerPage: (int) rpp filtered: (TumblrFilterType) filter {
+
+    //format url
+    NSMutableString *strUrl = [NSMutableString stringWithFormat:[_dicParams objectForKey:@"url_read"], tumblrPage];
+    
+    if (query && [query length] > 0) {
+        [strUrl appendFormat:@"?search=%@", query];
+    }
+    
+    //request
+    NSURL *url = [NSURL URLWithString:strUrl];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    //format request authentication
+    NSMutableString *strPostParams = [NSMutableString stringWithFormat:@"email=%@&password=%@", 
+                               [_strEmail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                               [_strPassword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    //format request type of data to be returned
+    NSString *strType = [self getTypeString:type];
+    if (strType) {
+        [strPostParams appendFormat:@"&type=%@", strType];
+    }
+    
+    //format request number of pages and total records per page
+    int start = page * rpp;
+    [strPostParams appendFormat:@"&start=%d&num=%d", start, rpp];
+    
+    //format request filter
+    if (filter != TumblrFilterTypeHtml) {
+        [strPostParams appendFormat:@"&filter=%@", [self getFilterString:filter]];
+    }
+    
+    [request setHTTPBody:[strPostParams dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPMethod:@"POST"];
+    
+    //inits connection
+    [_delegate retain];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    //set dictionary with api call types as all connections goes to the same delegate method call
+    CFDictionaryAddValue(_cfdicConnectionApiCall, connection, [NSNumber numberWithInt:TumblrApiCallDashboard]);
+    
+    [_arrConnections addObject:connection];
+    
+}
 
 #pragma - Connection Delegates
 

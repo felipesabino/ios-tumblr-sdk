@@ -33,10 +33,10 @@
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-    [_tbTumblr requestDashboard:TumblrPostTypeQuote atPage:1 andNumberOfRecordsPerPage:40 filtered:TumblrFilterTypeText];
+//    [_tbTumblr requestDashboard:TumblrPostTypeQuote atPage:1 andNumberOfRecordsPerPage:40 filtered:TumblrFilterTypeText];
+    [_tbTumblr requestPage:@"beautiful-quotes" forType:TumblrPostTypeQuote withSearch:nil atPage:1 andNumberOfRecordsPerPage:50 filtered:TumblrFilterTypeText];
     
 }
-
 
 #pragma - TumblrManagerDelegate
 
@@ -69,7 +69,9 @@
     
     if (buttonIndex == 0) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-        [_tbTumblr requestDashboard:TumblrPostTypeQuote atPage:1 andNumberOfRecordsPerPage:40 filtered:TumblrFilterTypeText];
+//        [_tbTumblr requestDashboard:TumblrPostTypeQuote atPage:1 andNumberOfRecordsPerPage:40 filtered:TumblrFilterTypeText];
+        [_tbTumblr requestPage:@"beautiful-quotes" forType:TumblrPostTypeQuote withSearch:nil atPage:1 andNumberOfRecordsPerPage:50 filtered:TumblrFilterTypeText];
+
     }
     
 }
